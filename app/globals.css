@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css');
+@import "tailwindcss";
+
+:root {
+  --green-dark: #1D3D2F;
+  --green-mid: #2A5240;
+  --green-light: #3D6B52;
+  --cream: #F5F0E8;
+  --gold: #C8A96E;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--cream);
+  color: var(--green-dark);
+}
