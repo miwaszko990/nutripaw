@@ -13,7 +13,6 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <div className="h-px bg-[rgba(29,61,47,0.1)] max-w-[1100px] mx-auto" />
         <HowItWorks />
         <Products />
         <Ingredients />

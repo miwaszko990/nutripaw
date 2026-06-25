@@ -25,7 +25,8 @@ export default function HowItWorks() {
   return (
     <section
       id="jak-to-dziala"
-      className="px-5 py-14 sm:px-8 sm:py-16 md:px-12 md:py-20 max-w-[1100px] mx-auto"
+      style={{ padding: "80px 48px", maxWidth: 1100, margin: "0 auto" }}
+      className="max-md:!px-5 max-md:!py-14"
     >
       <div
         style={{
@@ -40,14 +41,17 @@ export default function HowItWorks() {
         Jak to działa
       </div>
       <h2
-        className="text-[clamp(28px,5vw,36px)] mb-10 md:mb-12 max-w-[500px]"
         style={{
           fontFamily: "'Sora', sans-serif",
           fontWeight: 700,
+          fontSize: 36,
           letterSpacing: "-1px",
           color: "var(--green-dark)",
+          marginBottom: 48,
+          maxWidth: 500,
           lineHeight: 1.15,
         }}
+        className="max-md:text-[clamp(28px,5vw,36px)] max-md:mb-10"
       >
         Od ankiety do miski — w 3 krokach.
       </h2>

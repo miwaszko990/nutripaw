@@ -17,7 +17,6 @@ export default function Navbar() {
     <nav
       style={{
         background: "var(--cream)",
-        borderBottom: "1px solid rgba(29,61,47,0.1)",
         position: "sticky",
         top: 0,
         zIndex: 100,
