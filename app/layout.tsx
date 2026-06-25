@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   description: "Gotowana karma pełnoporcjowa dla psów w subskrypcji. Celowana zdrowotnie, FEDIAF 2025.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pl">

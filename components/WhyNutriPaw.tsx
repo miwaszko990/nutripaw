@@ -1,4 +1,5 @@
 "use client";
+
 const pillars = [
   {
     icon: "ti-flask",
@@ -34,32 +35,36 @@ const reviews = [
 
 export default function WhyNutriPaw() {
   return (
-    <section id="dlaczego" style={{ background: "var(--green-dark)", padding: "80px 48px" }}>
-      <div
-        style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}
-        className="grid-cols-1 md:grid-cols-2"
-      >
-        {/* left */}
+    <section id="dlaczego" className="bg-[var(--green-dark)] px-5 py-14 sm:px-8 sm:py-16 md:px-12 md:py-20">
+      <div className="max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <div>
-          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "var(--gold)", marginBottom: 12 }}>
+          <div
+            style={{
+              fontSize: 11,
+              fontWeight: 600,
+              letterSpacing: 2,
+              textTransform: "uppercase",
+              color: "var(--gold)",
+              marginBottom: 12,
+            }}
+          >
             Dlaczego NutriPaw
           </div>
           <h2
+            className="text-[clamp(28px,5vw,36px)] mb-8"
             style={{
               fontFamily: "'Sora', sans-serif",
               fontWeight: 700,
-              fontSize: 36,
               letterSpacing: "-1px",
               color: "var(--cream)",
-              marginBottom: 32,
               lineHeight: 1.15,
             }}
           >
             Nie karma. Jedzenie z prawdziwych składników.
           </h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+          <div className="flex flex-col gap-6">
             {pillars.map((p) => (
-              <div key={p.title} style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
+              <div key={p.title} className="flex gap-4 items-start">
                 <div
                   style={{
                     width: 36,
@@ -77,20 +82,25 @@ export default function WhyNutriPaw() {
                   <i className={`ti ${p.icon}`} />
                 </div>
                 <div>
-                  <div style={{ fontFamily: "'Sora', sans-serif", fontWeight: 600, fontSize: 15, color: "var(--cream)", marginBottom: 4 }}>
+                  <div
+                    style={{
+                      fontFamily: "'Sora', sans-serif",
+                      fontWeight: 600,
+                      fontSize: 15,
+                      color: "var(--cream)",
+                      marginBottom: 4,
+                    }}
+                  >
                     {p.title}
                   </div>
-                  <div style={{ fontSize: 13, color: "rgba(245,240,232,0.45)", lineHeight: 1.6 }}>
-                    {p.text}
-                  </div>
+                  <div style={{ fontSize: 13, color: "rgba(245,240,232,0.45)", lineHeight: 1.6 }}>{p.text}</div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* right */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {reviews.map((r) => (
             <div
               key={r.author}
@@ -102,15 +112,23 @@ export default function WhyNutriPaw() {
               }}
             >
               <div style={{ color: "var(--gold)", fontSize: 14, letterSpacing: 2, marginBottom: 10 }}>★★★★★</div>
-              <div style={{ fontSize: 14, color: "rgba(245,240,232,0.72)", lineHeight: 1.6, marginBottom: 14, fontStyle: "italic" }}>
+              <div
+                style={{
+                  fontSize: 14,
+                  color: "rgba(245,240,232,0.72)",
+                  lineHeight: 1.6,
+                  marginBottom: 14,
+                  fontStyle: "italic",
+                }}
+              >
                 {r.quote}
               </div>
               <div style={{ fontSize: 12, color: "rgba(245,240,232,0.35)", fontWeight: 500 }}>{r.author}</div>
             </div>
           ))}
 
-          {/* stat card */}
           <div
+            className="sm:col-span-2 lg:col-span-1"
             style={{
               background: "rgba(245,240,232,0.06)",
               border: "1px solid rgba(245,240,232,0.1)",
@@ -121,9 +139,12 @@ export default function WhyNutriPaw() {
               alignItems: "center",
               justifyContent: "center",
               textAlign: "center",
+              minHeight: 160,
             }}
           >
-            <div style={{ fontFamily: "'Sora', sans-serif", fontSize: 44, fontWeight: 700, color: "var(--gold)" }}>4.9</div>
+            <div style={{ fontFamily: "'Sora', sans-serif", fontSize: 44, fontWeight: 700, color: "var(--gold)" }}>
+              4.9
+            </div>
             <div style={{ fontSize: 14, color: "rgba(245,240,232,0.35)", marginTop: 4 }}>średnia ocena</div>
             <div style={{ color: "var(--gold)", letterSpacing: 3, marginTop: 6, fontSize: 16 }}>★★★★★</div>
             <div style={{ fontSize: 12, color: "rgba(245,240,232,0.22)", marginTop: 8 }}>na podstawie 312 opinii</div>

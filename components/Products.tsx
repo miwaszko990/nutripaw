@@ -1,112 +1,108 @@
-"use client";
-const lines = [
+import { HeartPulse, Sparkles, Sprout, type LucideIcon } from "lucide-react";
+import styles from "./Products.module.css";
+
+type Chip = string | { label: string; variant: "solid" | "ghost" };
+
+type ProductLine = {
+  id: string;
+  variant: "glow" | "vital" | "gut";
+  Icon: LucideIcon;
+  name: string;
+  goal: string;
+  benefit: string;
+  chips: Chip[];
+  recipes: string[];
+};
+
+const lines: ProductLine[] = [
   {
     id: "glow",
-    bg: "#2A5240",
+    variant: "glow",
+    Icon: Sparkles,
     name: "GLOW",
-    tagline: "Skóra · sierść · mikrobiom",
-    tags: ["Spirulina", "Olej sardynkowy", "EPA/DHA"],
-    flavors: ["Wołowina z olejem sardynkowym", "Indyk ze spiruliną i batatem"],
+    goal: "Skóra · Sierść · Mikrobiom",
+    benefit: "Lśniąca sierść, zdrowa skóra.",
+    chips: ["Spirulina", "Olej sardynkowy", "EPA/DHA"],
+    recipes: ["Wołowina z olejem sardynkowym", "Indyk ze spiruliną i batatem"],
   },
   {
     id: "vital",
-    bg: "#1D3D2F",
+    variant: "vital",
+    Icon: HeartPulse,
     name: "VITAL",
-    tagline: "Długowieczność · stawy · energia",
-    tags: ["Małże zielone", "Glukozamina", "Kurkuma"],
-    flavors: ["Kurczak z małżami i marchewką", "Łosoś z batatem i algami"],
+    goal: "Długowieczność · Stawy · Energia",
+    benefit: "Mocne stawy, więcej energii.",
+    chips: [
+      { label: "Małże zielone", variant: "solid" },
+      { label: "Glukozamina", variant: "ghost" },
+      { label: "Kurkuma", variant: "ghost" },
+    ],
+    recipes: ["Kurczak z małżami i marchewką", "Łosoś z batatem i algami"],
   },
   {
     id: "gut",
-    bg: "#3D6B52",
+    variant: "gut",
+    Icon: Sprout,
     name: "GUT",
-    tagline: "Mikrobiom · trawienie · jelita",
-    tags: ["Dynia", "Proso", "Prebiotyki"],
-    flavors: ["Kurczak z dynią i prosem", "Indyk z cukinią i marchewką"],
+    goal: "Mikrobiom · Trawienie · Jelita",
+    benefit: "Spokojny brzuch, mocny mikrobiom.",
+    chips: ["Dynia", "Proso", "Prebiotyki"],
+    recipes: ["Kurczak z dynią i prosem", "Indyk z cukinią i marchewką"],
   },
 ];
 
+function chipClassName(variant: ProductLine["variant"], chip: Chip) {
+  if (typeof chip === "string") return styles.chip;
+  if (variant === "vital") {
+    return chip.variant === "solid" ? styles.chipSolid : styles.chipGhost;
+  }
+  return styles.chip;
+}
+
+function chipLabel(chip: Chip) {
+  return typeof chip === "string" ? chip : chip.label;
+}
+
 export default function Products() {
   return (
-    <section id="produkty" style={{ padding: "0 48px 80px", maxWidth: 1100, margin: "0 auto" }}>
-      <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "var(--gold)", marginBottom: 12 }}>
-        Linie produktowe
-      </div>
-      <h2
-        style={{
-          fontFamily: "'Sora', sans-serif",
-          fontWeight: 700,
-          fontSize: 36,
-          letterSpacing: "-1px",
-          color: "var(--green-dark)",
-          marginBottom: 48,
-          maxWidth: 500,
-          lineHeight: 1.15,
-        }}
-      >
-        Trzy linie. Jeden cel — zdrowy pies.
-      </h2>
+    <section className={styles.wrapper} id="produkty">
+      <div className={styles.eyebrow}>Linie produktowe</div>
+      <h2 className={styles.heading}>Trzy linie. Jeden cel — zdrowy pies.</h2>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }} className="grid-cols-1 md:grid-cols-3">
-        {lines.map((line) => (
-          <div
-            key={line.id}
-            style={{ borderRadius: 20, overflow: "hidden", cursor: "pointer", transition: "transform 0.2s" }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-5px)")}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
-          >
-            {/* top */}
-            <div
-              style={{
-                background: line.bg,
-                padding: "32px 24px 24px",
-                minHeight: 220,
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-              }}
-            >
-              <div>
-                <div style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: 32, color: "var(--cream)", letterSpacing: 1 }}>
-                  {line.name}
-                </div>
-                <div style={{ fontSize: 12, color: "rgba(245,240,232,0.5)", marginTop: 4, textTransform: "uppercase", letterSpacing: 1, fontWeight: 500 }}>
-                  {line.tagline}
-                </div>
-              </div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 20 }}>
-                {line.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    style={{
-                      background: "rgba(245,240,232,0.12)",
-                      color: "rgba(245,240,232,0.8)",
-                      fontSize: 11,
-                      padding: "4px 10px",
-                      borderRadius: 100,
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
+      <div className={styles.grid}>
+          {lines.map((line) => {
+            const cardClass =
+              line.variant === "glow" ? styles.glow : line.variant === "vital" ? styles.vital : styles.gut;
 
-            {/* bottom */}
-            <div style={{ background: "#fff", padding: "20px 24px" }}>
-              {line.flavors.map((flavor, i) => (
-                <div key={flavor}>
-                  {i > 0 && <div style={{ height: 1, background: "rgba(29,61,47,0.07)", margin: "6px 0" }} />}
-                  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                    <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--gold)", flexShrink: 0 }} />
-                    <span style={{ fontSize: 13, color: "var(--green-dark)", fontWeight: 500 }}>{flavor}</span>
-                  </div>
+            return (
+              <article key={line.id} className={`${styles.card} ${cardClass}`}>
+                <line.Icon className={styles.watermark} strokeWidth={1.5} aria-hidden="true" />
+                <span className={styles.badge}>
+                  <line.Icon size={26} strokeWidth={2} aria-hidden="true" />
+                </span>
+                <div className={styles.name}>{line.name}</div>
+                <div className={styles.goal}>{line.goal}</div>
+                <p className={styles.benefit}>{line.benefit}</p>
+                <div className={styles.chips}>
+                  {line.chips.map((chip) => (
+                    <span key={chipLabel(chip)} className={chipClassName(line.variant, chip)}>
+                      {chipLabel(chip)}
+                    </span>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+                <div className={styles.divider} />
+                <div className={styles.recipes}>
+                  {line.recipes.map((recipe) => (
+                    <div key={recipe} className={styles.recipe}>
+                      <span className={styles.dot} />
+                      <span>{recipe}</span>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            );
+          })}
+        </div>
     </section>
   );
 }

@@ -1,4 +1,5 @@
 "use client";
+
 const steps = [
   {
     num: "01",
@@ -22,38 +23,38 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="jak-to-dziala" style={{ padding: "80px 48px", maxWidth: 1100, margin: "0 auto" }}>
-      <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "var(--gold)", marginBottom: 12 }}>
+    <section
+      id="jak-to-dziala"
+      className="px-5 py-14 sm:px-8 sm:py-16 md:px-12 md:py-20 max-w-[1100px] mx-auto"
+    >
+      <div
+        style={{
+          fontSize: 11,
+          fontWeight: 600,
+          letterSpacing: 2,
+          textTransform: "uppercase",
+          color: "var(--gold)",
+          marginBottom: 12,
+        }}
+      >
         Jak to działa
       </div>
       <h2
+        className="text-[clamp(28px,5vw,36px)] mb-10 md:mb-12 max-w-[500px]"
         style={{
           fontFamily: "'Sora', sans-serif",
           fontWeight: 700,
-          fontSize: 36,
           letterSpacing: "-1px",
           color: "var(--green-dark)",
-          marginBottom: 48,
-          maxWidth: 500,
           lineHeight: 1.15,
         }}
       >
         Od ankiety do miski — w 3 krokach.
       </h2>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: 2,
-          background: "rgba(29,61,47,0.08)",
-          borderRadius: 20,
-          overflow: "hidden",
-        }}
-        className="grid-cols-1 md:grid-cols-3"
-      >
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-0.5 bg-[rgba(29,61,47,0.08)] rounded-[20px] overflow-hidden">
         {steps.map((step) => (
-          <div key={step.num} style={{ background: "var(--cream)", padding: "36px 28px" }}>
+          <div key={step.num} className="bg-[var(--cream)] px-6 py-8 sm:px-7 sm:py-9">
             <div
               style={{
                 fontFamily: "'Sora', sans-serif",
@@ -93,9 +94,7 @@ export default function HowItWorks() {
             >
               {step.title}
             </h3>
-            <p style={{ fontSize: 14, lineHeight: 1.65, color: "rgba(29,61,47,0.6)" }}>
-              {step.text}
-            </p>
+            <p style={{ fontSize: 14, lineHeight: 1.65, color: "rgba(29,61,47,0.6)" }}>{step.text}</p>
           </div>
         ))}
       </div>

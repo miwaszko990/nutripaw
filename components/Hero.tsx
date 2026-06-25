@@ -1,20 +1,37 @@
 "use client";
 
 const pouches = [
-  { id: "glow", bg: "#2A5240", height: 170, badge: "Skóra", name: "GLOW", sub: "Wołowina + spirulina" },
-  { id: "vital", bg: "#1D3D2F", height: 195, badge: "Długowieczność", name: "VITAL", sub: "Kurczak + małże" },
-  { id: "gut", bg: "#3D6B52", height: 160, badge: "Jelita", name: "GUT", sub: "Kurczak + dynia" },
+  {
+    id: "glow",
+    bg: "#2A5240",
+    heightClass: "h-[140px] md:h-[170px]",
+    badge: "Skóra",
+    name: "GLOW",
+    sub: "Wołowina + spirulina",
+  },
+  {
+    id: "vital",
+    bg: "#1D3D2F",
+    heightClass: "h-[160px] md:h-[195px]",
+    badge: "Długowieczność",
+    name: "VITAL",
+    sub: "Kurczak + małże",
+  },
+  {
+    id: "gut",
+    bg: "#3D6B52",
+    heightClass: "h-[130px] md:h-[160px]",
+    badge: "Jelita",
+    name: "GUT",
+    sub: "Kurczak + dynia",
+  },
 ];
 
 export default function Hero() {
   return (
-    <div style={{ background: "var(--cream)", padding: "80px 48px 0" }}>
-      <div
-        style={{ maxWidth: 1100, margin: "0 auto" }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-12 items-end min-h-[520px]"
-      >
-        {/* LEFT */}
-        <div className="pb-20 md:pb-20">
+    <div className="bg-[var(--cream)] px-5 pt-12 pb-0 sm:px-8 md:px-12 md:pt-20 lg:px-12">
+      <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-end md:min-h-[520px]">
+        <div className="pb-8 md:pb-20">
           <div
             style={{
               display: "inline-flex",
@@ -47,7 +64,7 @@ export default function Hero() {
             style={{
               fontFamily: "'Sora', sans-serif",
               fontWeight: 700,
-              fontSize: "clamp(36px, 5vw, 52px)",
+              fontSize: "clamp(32px, 6vw, 52px)",
               lineHeight: 1.08,
               letterSpacing: "-1.5px",
               color: "var(--green-dark)",
@@ -60,19 +77,19 @@ export default function Hero() {
           </h1>
 
           <p
+            className="max-w-[420px]"
             style={{
               fontSize: 16,
               lineHeight: 1.65,
               color: "rgba(29,61,47,0.65)",
               marginBottom: 36,
-              maxWidth: 420,
             }}
           >
             Gotowane z ludzkich składników, skomponowane przez dietetyków.
             Dostarczamy do drzwi — co miesiąc, zgodnie z potrzebami Twojego psa.
           </p>
 
-          <div className="flex items-center gap-4 flex-wrap">
+          <div className="flex items-center gap-3 sm:gap-4 flex-wrap">
             <a
               href="#subskrypcja"
               style={{
@@ -108,8 +125,8 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="flex items-center gap-3 mt-10">
-            <div className="flex">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 mt-8 sm:mt-10">
+            <div className="flex shrink-0">
               {["A", "M", "K", "J"].map((letter, i) => (
                 <div
                   key={letter}
@@ -134,33 +151,19 @@ export default function Hero() {
                 </div>
               ))}
             </div>
-            <span style={{ fontSize: 13, color: "rgba(29,61,47,0.5)" }}>
+            <span style={{ fontSize: 13, color: "rgba(29,61,47,0.5)", lineHeight: 1.5 }}>
               Dołącz do <strong>2 000+</strong> opiekunów, którzy już karmią zdrowiej
             </span>
           </div>
         </div>
 
-        {/* RIGHT — pouches */}
-        <div className="flex flex-col items-center justify-end">
-          <div className="flex gap-3 items-end">
+        <div className="flex flex-col items-center justify-end pb-8 md:pb-0">
+          <div className="flex gap-2 sm:gap-3 items-end">
             {pouches.map((p) => (
               <div
                 key={p.id}
-                style={{
-                  width: 100,
-                  height: p.height,
-                  background: p.bg,
-                  borderRadius: 16,
-                  padding: "16px 12px",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  cursor: "pointer",
-                  transition: "transform 0.25s ease",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-8px)")}
-                onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
+                style={{ background: p.bg }}
+                className={`w-[76px] sm:w-[88px] md:w-[100px] rounded-2xl px-3 py-4 sm:px-3 sm:py-4 flex flex-col items-center justify-between cursor-pointer transition-transform duration-250 ease-in-out hover:-translate-y-2 ${p.heightClass}`}
               >
                 <span
                   style={{
@@ -181,28 +184,33 @@ export default function Hero() {
                   style={{
                     fontFamily: "'Sora', sans-serif",
                     fontWeight: 700,
-                    fontSize: 18,
+                    fontSize: 16,
                     color: "var(--cream)",
                     letterSpacing: 1,
                   }}
+                  className="sm:text-lg"
                 >
                   {p.name}
                 </span>
                 <span
                   style={{
-                    fontSize: 10,
+                    fontSize: 9,
                     color: "rgba(245,240,232,0.55)",
                     textAlign: "center",
                     letterSpacing: "0.5px",
                     textTransform: "uppercase",
                   }}
+                  className="sm:text-[10px]"
                 >
                   {p.sub}
                 </span>
               </div>
             ))}
           </div>
-          <p style={{ marginTop: 14, fontSize: 12, color: "rgba(29,61,47,0.3)", letterSpacing: "0.4px" }}>
+          <p
+            className="text-center px-2"
+            style={{ marginTop: 14, fontSize: 12, color: "rgba(29,61,47,0.3)", letterSpacing: "0.4px" }}
+          >
             Saszetka 400g · FEDIAF 2025 · bez zbóż glutenowych
           </p>
         </div>
