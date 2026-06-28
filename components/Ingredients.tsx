@@ -1,8 +1,10 @@
 "use client";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./Ingredients.module.css";
+
+const SWIPE_THRESHOLD = 48;
 
 type Ingredient = {
   id: string;
@@ -259,11 +261,83 @@ function SlideFigure({ slide }: { slide: Slide }) {
 
 export default function Ingredients() {
   const [active, setActive] = useState(0);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const activeRef = useRef(active);
   const slide = slides[active];
 
   const goTo = useCallback((index: number) => {
     setActive((index + slides.length) % slides.length);
   }, []);
+
+  useEffect(() => {
+    activeRef.current = active;
+  }, [active]);
+
+  useEffect(() => {
+    const el = viewportRef.current;
+    if (!el) return;
+
+    let startX = 0;
+    let startY = 0;
+    let tracking = false;
+
+    const onStart = (e: TouchEvent) => {
+      if (e.touches.length !== 1) return;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      tracking = true;
+      setIsDragging(true);
+      setDragOffset(0);
+    };
+
+    const onMove = (e: TouchEvent) => {
+      if (!tracking || e.touches.length !== 1) return;
+
+      const dx = e.touches[0].clientX - startX;
+      const dy = e.touches[0].clientY - startY;
+
+      if (Math.abs(dx) <= Math.abs(dy) || Math.abs(dx) < 8) return;
+
+      e.preventDefault();
+
+      const current = activeRef.current;
+      let offset = dx;
+      if (current === 0 && dx > 0) offset = dx * 0.25;
+      if (current === slides.length - 1 && dx < 0) offset = dx * 0.25;
+
+      setDragOffset(offset);
+    };
+
+    const onEnd = (e: TouchEvent) => {
+      if (!tracking) return;
+      tracking = false;
+
+      const dx = e.changedTouches[0].clientX - startX;
+      const dy = e.changedTouches[0].clientY - startY;
+
+      setIsDragging(false);
+      setDragOffset(0);
+
+      if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) <= Math.abs(dy)) return;
+
+      if (dx < 0) goTo(activeRef.current + 1);
+      else goTo(activeRef.current - 1);
+    };
+
+    el.addEventListener("touchstart", onStart, { passive: true });
+    el.addEventListener("touchmove", onMove, { passive: false });
+    el.addEventListener("touchend", onEnd, { passive: true });
+    el.addEventListener("touchcancel", onEnd, { passive: true });
+
+    return () => {
+      el.removeEventListener("touchstart", onStart);
+      el.removeEventListener("touchmove", onMove);
+      el.removeEventListener("touchend", onEnd);
+      el.removeEventListener("touchcancel", onEnd);
+    };
+  }, [goTo]);
 
   return (
     <section className={styles.section} id="skladniki">
@@ -296,10 +370,10 @@ export default function Ingredients() {
             <ChevronLeft size={22} strokeWidth={2} aria-hidden="true" />
           </button>
 
-          <div className={styles.sliderViewport}>
+          <div className={styles.sliderViewport} ref={viewportRef}>
           <div
-            className={styles.sliderTrack}
-            style={{ transform: `translateX(-${active * 100}%)` }}
+            className={`${styles.sliderTrack} ${isDragging ? styles.sliderTrackDragging : ""}`}
+            style={{ transform: `translateX(calc(-${active * 100}% + ${dragOffset}px))` }}
           >
             {slides.map((item) => (
               <div

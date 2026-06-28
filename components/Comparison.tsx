@@ -101,7 +101,7 @@ function MarkDot({ variant }: { variant: Mark | "np" }) {
 
   return (
     <span className={`${styles.dot} ${dotClass}`}>
-      <Icon size={size} strokeWidth={2.5} aria-hidden="true" />
+      <Icon className={styles.dotIcon} size={size} strokeWidth={2.5} aria-hidden="true" />
     </span>
   );
 }
@@ -127,7 +127,6 @@ export default function Comparison() {
       </div>
 
       <div className={styles.tableWrap}>
-        <p className={styles.scrollHint}>Przesuń w bok, aby zobaczyć całą tabelę</p>
         <div className={styles.table}>
           <div className={styles.headerGrid}>
             <div className={styles.hCell} />
@@ -145,13 +144,19 @@ export default function Comparison() {
               <span className={`${styles.hTile} ${styles.hTileComp}`}>
                 <Soup size={20} strokeWidth={2} aria-hidden="true" />
               </span>
-              <span className={`${styles.hLbl} ${styles.hLblComp}`}>Inne cateringi dla psów</span>
+              <span className={`${styles.hLbl} ${styles.hLblComp}`}>
+                <span className={styles.hLblFull}>Inne cateringi dla psów</span>
+                <span className={styles.hLblShort}>Cateringi</span>
+              </span>
             </div>
             <div className={styles.hCell}>
               <span className={`${styles.hTile} ${styles.hTileComp}`}>
                 <Package size={20} strokeWidth={2} aria-hidden="true" />
               </span>
-              <span className={`${styles.hLbl} ${styles.hLblComp}`}>Karmy suche i mokre</span>
+              <span className={`${styles.hLbl} ${styles.hLblComp}`}>
+                <span className={styles.hLblFull}>Karmy suche i mokre</span>
+                <span className={styles.hLblShort}>Suche/mokre</span>
+              </span>
             </div>
           </div>
 

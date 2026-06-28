@@ -14,20 +14,21 @@
   --font-display: 'Hanken Grotesk', system-ui, sans-serif;
   --font-body: 'Mulish', system-ui, sans-serif;
   --font-mono: 'DM Mono', ui-monospace, monospace;
-  --col-feat: minmax(148px, 1fr);
-  --col-np: 72px;
-  --col-comp: 64px;
-  --head-h: 84px;
+  --col-feat: minmax(0, 1fr);
+  --col-np: 48px;
+  --col-comp: 38px;
+  --head-h: 68px;
 
   position: relative;
   background: var(--forest);
-  padding: 48px 16px 56px;
+  padding: 48px 10px 56px;
   overflow: hidden;
   font-family: var(--font-body);
 }
 
 @media (min-width: 640px) {
   .section {
+    --col-feat: minmax(148px, 1fr);
     --col-np: 88px;
     --col-comp: 76px;
     --head-h: 88px;
@@ -154,9 +155,7 @@
   position: relative;
   max-width: 860px;
   margin: 28px auto 0;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 4px;
+  width: 100%;
 }
 
 @media (min-width: 640px) {
@@ -168,27 +167,11 @@
 @media (min-width: 900px) {
   .tableWrap {
     margin-top: 44px;
-    overflow-x: visible;
-  }
-}
-
-.scrollHint {
-  display: block;
-  margin: 0 0 10px;
-  text-align: center;
-  font-size: 11px;
-  color: rgba(155, 191, 138, 0.75);
-}
-
-@media (min-width: 900px) {
-  .scrollHint {
-    display: none;
   }
 }
 
 .table {
   position: relative;
-  min-width: 480px;
   width: 100%;
 }
 
@@ -300,6 +283,99 @@
   .hLbl {
     font-size: 12px;
     max-width: 110px;
+  }
+}
+
+.hLblShort {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  .hCell {
+    padding: 10px 1px 0;
+    gap: 4px;
+    min-height: var(--head-h);
+  }
+
+  .hTile {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+  }
+
+  .hTileNp {
+    padding: 4px;
+  }
+
+  .hTileNp img {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .hTileComp svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .hLbl {
+    font-size: 7.5px;
+    max-width: none;
+    line-height: 1.15;
+    padding: 0 1px;
+  }
+
+  .hLblFull {
+    display: none;
+  }
+
+  .hLblShort {
+    display: block;
+  }
+
+  .hCellNp {
+    border-radius: 14px 14px 0 0;
+    box-shadow: none;
+  }
+
+  .featIc {
+    display: none;
+  }
+
+  .feat {
+    gap: 0;
+    padding: 8px 4px 8px 8px;
+  }
+
+  .featTxt {
+    font-size: 10px;
+    line-height: 1.28;
+  }
+
+  .mark {
+    padding: 8px 0;
+  }
+
+  .markNp {
+    box-shadow: none;
+  }
+
+  .markNp.rowLast {
+    border-radius: 0 0 14px 14px;
+    box-shadow: none;
+  }
+
+  .dot {
+    width: 18px;
+    height: 18px;
+  }
+
+  .dotIcon {
+    width: 11px !important;
+    height: 11px !important;
+  }
+
+  .card {
+    border-radius: 0 0 14px 14px;
   }
 }
 
