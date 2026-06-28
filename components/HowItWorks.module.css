@@ -1,0 +1,261 @@
+.section {
+  background: #f5f0e8;
+  padding: 64px 24px 72px;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+@media (min-width: 881px) {
+  .section {
+    padding: 96px 64px 104px;
+  }
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.head {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+@media (min-width: 881px) {
+  .head {
+    grid-template-columns: 1.12fr 0.88fr;
+    gap: 60px;
+    margin-bottom: 72px;
+  }
+}
+
+.eyebrow {
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c8a96e;
+  margin-bottom: 18px;
+}
+
+.title {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #1d3d2f;
+  margin: 0 0 22px;
+}
+
+@media (min-width: 881px) {
+  .title {
+    font-size: 48px;
+  }
+}
+
+.lead {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #5a6b5e;
+  margin: 0;
+  max-width: 440px;
+}
+
+.blob {
+  position: absolute;
+  pointer-events: none;
+}
+
+@media (max-width: 880px) {
+  .title {
+    font-size: clamp(28px, 7vw, 36px);
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+}
+
+.media {
+  position: relative;
+  width: 100%;
+}
+
+.blobSage {
+  right: -14px;
+  top: -18px;
+  width: min(72vw, 280px);
+  height: min(72vw, 280px);
+  background: #9bbf8a;
+  opacity: 0.3;
+  border-radius: 46% 54% 58% 42% / 52% 46% 54% 48%;
+}
+
+.blobGold {
+  left: -26px;
+  bottom: -20px;
+  width: min(44vw, 160px);
+  height: min(44vw, 160px);
+  background: #c8a96e;
+  opacity: 0.16;
+  border-radius: 54% 46% 42% 58% / 48% 54% 46% 52%;
+}
+
+.photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  min-height: 240px;
+  max-height: 380px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px -18px rgba(29, 61, 47, 0.35);
+}
+
+@media (min-width: 640px) {
+  .photo {
+    border-radius: 28px;
+    min-height: 280px;
+    max-height: 420px;
+  }
+}
+
+@media (min-width: 881px) {
+  .photo {
+    aspect-ratio: auto;
+    height: 400px;
+    max-height: none;
+  }
+}
+
+.photoImg {
+  object-fit: cover;
+  object-position: 50% 28%;
+}
+
+@media (max-width: 640px) {
+  .photo {
+    aspect-ratio: 5 / 4;
+    min-height: 260px;
+  }
+
+  .photoImg {
+    object-position: 50% 22%;
+  }
+}
+
+.badge {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: #fff;
+  border-radius: 999px;
+  padding: 9px 16px 9px 11px;
+  box-shadow: 0 10px 24px -10px rgba(29, 61, 47, 0.4);
+  z-index: 2;
+}
+
+.badgeIcon {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: #f3e9d6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b68e50;
+  flex: none;
+}
+
+.badgeText {
+  font-weight: 700;
+  font-size: 13px;
+  color: #1d3d2f;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 881px) {
+  .steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.step {
+  padding: 0;
+}
+
+@media (min-width: 881px) {
+  .step {
+    padding: 0 40px;
+  }
+
+  .step:first-child {
+    padding-left: 0;
+  }
+
+  .step:last-child {
+    padding-right: 0;
+  }
+}
+
+.step + .step {
+  border-top: 1px solid #e3dacb;
+  padding-top: 32px;
+  margin-top: 32px;
+}
+
+@media (min-width: 881px) {
+  .step + .step {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+    border-left: 1px solid #e3dacb;
+  }
+}
+
+.stepNum {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 1;
+  color: #1d3d2f;
+  opacity: 0.12;
+  margin-bottom: 24px;
+}
+
+.stepIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #1d3d2f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f5f0e8;
+  margin-bottom: 20px;
+}
+
+.stepTitle {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #1d3d2f;
+  margin: 0 0 12px;
+}
+
+.stepText {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #5a6b5e;
+  margin: 0;
+}

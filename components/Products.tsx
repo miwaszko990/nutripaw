@@ -54,7 +54,7 @@ const lines: ProductLine[] = [
 function chipClassName(variant: ProductLine["variant"], chip: Chip) {
   if (typeof chip === "string") return styles.chip;
   if (variant === "vital") {
-    return chip.variant === "solid" ? styles.chipSolid : styles.chipGhost;
+    return `${styles.chip} ${chip.variant === "solid" ? styles.chipSolid : styles.chipGhost}`;
   }
   return styles.chip;
 }

@@ -137,7 +137,7 @@ export default function Hero() {
           Jedzenie, które <em>naprawdę</em> działa na Twojego psa.
         </h1>
         <p className={styles.sub}>
-          Gotowane z ludzkich składników, skomponowane przez dietetyków. Dostarczamy do drzwi — co miesiąc,
+          Gotowane z ludzkich składników, skomponowane przez dietetyków. Dostarczamy co tydzień,
           zgodnie z potrzebami Twojego psa.
         </p>
         <div className={styles.cta}>

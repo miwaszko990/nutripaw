@@ -23,6 +23,12 @@
 # misc
 .DS_Store
 *.pem
+Thumbs.db
+
+# editor / IDE
+.idea/
+.vscode/
+.cursor/
 
 # debug
 npm-debug.log*

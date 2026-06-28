@@ -1,0 +1,154 @@
+.section {
+  --forest: #2e4636;
+  --cream: #f5f0e8;
+  --sage: #9bbf8a;
+  --slate-700: #4a544d;
+  --slate-500: #6f7a72;
+  --slate-200: #dde0d3;
+  --terracotta: #c06849;
+
+  padding: 56px 20px 80px;
+  background: var(--cream);
+  font-family: 'Mulish', 'Inter', system-ui, sans-serif;
+  color: var(--slate-700);
+  min-height: 60vh;
+}
+
+@media (min-width: 640px) {
+  .section {
+    padding: 64px 32px 96px;
+  }
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 80px 48px 104px;
+  }
+}
+
+.inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 14px;
+}
+
+.title {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: clamp(30px, 5vw, 42px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--forest);
+  margin: 0 0 14px;
+}
+
+.lead {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--slate-500);
+  margin: 0 0 40px;
+  max-width: 560px;
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+@media (min-width: 768px) {
+  .groups {
+    gap: 44px;
+  }
+}
+
+.groupTitle {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--forest);
+  margin: 0 0 6px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--slate-200);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  border-bottom: 1px solid var(--slate-200);
+  transition: border-color 0.2s;
+}
+
+.itemOpen {
+  border-bottom-color: rgba(155, 191, 138, 0.45);
+}
+
+.question {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-family: 'Mulish', 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--forest);
+  cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .question {
+    font-size: 16px;
+    padding: 20px 0;
+  }
+}
+
+.question:hover {
+  color: var(--terracotta);
+}
+
+.icon {
+  flex: none;
+  color: var(--slate-500);
+  transition: transform 0.25s ease, color 0.2s;
+  margin-top: 2px;
+}
+
+.itemOpen .icon {
+  transform: rotate(180deg);
+  color: var(--forest);
+}
+
+.answerWrap {
+  padding: 0 0 18px;
+}
+
+@media (min-width: 640px) {
+  .answerWrap {
+    padding-bottom: 20px;
+  }
+}
+
+.answer {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--slate-700);
+  max-width: 640px;
+}
