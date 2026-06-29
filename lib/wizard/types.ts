@@ -36,16 +36,6 @@ export const INITIAL_WIZARD_DATA: WizardData = {
   marketingConsent: false,
 };
 
-export const POPULAR_BREEDS = [
-  "Labrador retriever",
-  "Golden retriever",
-  "Owczarek niemiecki",
-  "Border collie",
-  "Jamnik",
-  "Mieszaniec",
-  "Nie wiem",
-];
-
 export const GOAL_OPTIONS = [
   { id: "skin", label: "Skóra i sierść" },
   { id: "digestion", label: "Trawienie i jelita" },

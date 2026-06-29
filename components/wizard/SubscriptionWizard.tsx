@@ -8,7 +8,6 @@ import {
   Check,
   Dog,
   Heart,
-  Search,
   Soup,
 } from "lucide-react";
 import { useMemo, useState } from "react";
@@ -19,7 +18,6 @@ import {
   ALLERGY_OPTIONS,
   GOAL_OPTIONS,
   INITIAL_WIZARD_DATA,
-  POPULAR_BREEDS,
   recommendPlan,
   type ActivityLevel,
   type AgeGroup,
@@ -27,6 +25,7 @@ import {
   type Gender,
   type WizardData,
 } from "@/lib/wizard/types";
+import BreedCombobox from "./BreedCombobox";
 import styles from "./SubscriptionWizard.module.css";
 
 const TOTAL_STEPS = 10;
@@ -261,28 +260,7 @@ export default function SubscriptionWizard() {
             <>
               <h2 className={styles.question}>Jaka to rasa?</h2>
               <p className={styles.hint}>Dobierzemy profil pod wielkość i predyspozycje.</p>
-              <div className={styles.searchWrap}>
-                <Search size={18} className={styles.searchIcon} aria-hidden="true" />
-                <input
-                  className={styles.searchInput}
-                  value={data.breed}
-                  onChange={(e) => patch({ breed: e.target.value })}
-                  placeholder="Wpisz rasę..."
-                />
-              </div>
-              <p className={styles.groupLabel}>Popularne</p>
-              <div className={styles.tagGrid}>
-                {POPULAR_BREEDS.map((breed) => (
-                  <button
-                    key={breed}
-                    type="button"
-                    className={`${styles.tagBtn} ${data.breed === breed ? styles.tagBtnActive : ""}`}
-                    onClick={() => patch({ breed })}
-                  >
-                    {breed}
-                  </button>
-                ))}
-              </div>
+              <BreedCombobox value={data.breed} onChange={(breed) => patch({ breed })} />
             </>
           )}
 
