@@ -141,7 +141,7 @@ export default function Hero() {
           zgodnie z potrzebami Twojego psa.
         </p>
         <div className={styles.cta}>
-          <a href="#subskrypcja" className={`${styles.btn} ${styles.btnPrimary} ${styles.btnFullMobile}`}>
+          <a href="/ankieta" className={`${styles.btn} ${styles.btnPrimary} ${styles.btnFullMobile}`}>
             Dopasuj plan →
           </a>
           <a href="#skladniki" className={`${styles.btn} ${styles.btnGhost} ${styles.btnFullMobile}`}>

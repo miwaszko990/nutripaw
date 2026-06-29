@@ -36,8 +36,12 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# local lead storage (dev fallback)
+/data/leads.json
+
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel

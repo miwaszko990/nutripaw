@@ -121,7 +121,7 @@ export default function Comparison() {
           składy, żadnych konserwantów, przypraw ani wypełniaczy — delikatnie ugotowane i porcjowane pod
           Twojego psa.
         </p>
-        <a href="#subskrypcja" className={styles.cta}>
+        <a href="/ankieta" className={styles.cta}>
           Dopasuj plan dla psa →
         </a>
       </div>

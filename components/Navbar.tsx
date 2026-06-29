@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, type CSSProperties } from "react";
 import NutriPawWordmark from "./NutriPawWordmark";
+import StartSubscriptionButton from "./StartSubscriptionButton";
 
 const navLinks = [
   { label: "Jak to działa", href: "/#jak-to-dziala" },
@@ -71,8 +72,7 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-3 shrink-0">
-          <a
-            href="#subskrypcja"
+          <StartSubscriptionButton
             style={{
               background: "var(--green-dark)",
               color: "var(--cream)",
@@ -81,13 +81,14 @@ export default function Navbar() {
               fontSize: 14,
               borderRadius: 100,
               padding: "10px 16px",
-              textDecoration: "none",
+              border: "none",
+              cursor: "pointer",
             }}
             className="hover:opacity-80 transition-opacity md:px-[22px] hidden sm:inline-flex"
           >
             <span className="hidden md:inline">Zacznij subskrypcję →</span>
             <span className="md:hidden">Subskrypcja →</span>
-          </a>
+          </StartSubscriptionButton>
 
           <button
             type="button"
@@ -125,9 +126,8 @@ export default function Navbar() {
               />
             </li>
           ))}
-          <li className="sm:hidden pt-2">
-            <a
-              href="#subskrypcja"
+          <li className="lg:hidden pt-2">
+            <StartSubscriptionButton
               onClick={() => setOpen(false)}
               style={{
                 background: "var(--green-dark)",
@@ -137,12 +137,12 @@ export default function Navbar() {
                 fontSize: 14,
                 borderRadius: 100,
                 padding: "12px 20px",
-                textDecoration: "none",
-                display: "inline-block",
+                border: "none",
+                cursor: "pointer",
               }}
             >
               Zacznij subskrypcję →
-            </a>
+            </StartSubscriptionButton>
           </li>
         </ul>
       )}
