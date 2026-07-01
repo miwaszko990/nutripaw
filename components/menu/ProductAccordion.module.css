@@ -15,15 +15,22 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 20px 0;
+  padding: 16px 0;
   border: none;
   background: transparent;
   font-family: "Hanken Grotesk", system-ui, sans-serif;
   font-weight: 800;
-  font-size: 18px;
+  font-size: 16px;
   color: #2e4636;
   cursor: pointer;
   text-align: left;
+}
+
+@media (min-width: 640px) {
+  .trigger {
+    padding: 20px 0;
+    font-size: 18px;
+  }
 }
 
 .icon {

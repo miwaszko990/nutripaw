@@ -1,14 +1,17 @@
 .page {
-  padding: 48px 40px 96px;
+  padding: 32px 20px 72px;
   background: #faf6ec;
+  overflow-x: hidden;
 }
 
 .breadcrumbs {
   max-width: 1120px;
-  margin: 0 auto 32px;
+  margin: 0 auto 20px;
   font-family: "Mulish", system-ui, sans-serif;
-  font-size: 13px;
+  font-size: 12px;
+  line-height: 1.5;
   color: #6f7a72;
+  word-break: break-word;
 }
 
 .breadcrumbs a {
@@ -20,41 +23,33 @@
   color: #2e4636;
 }
 
-.layout {
+.shell {
   max-width: 1120px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 48px;
-  align-items: start;
 }
 
-.gallery {
-  position: relative;
+.header {
+  margin-bottom: 24px;
+}
+
+.title {
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 6vw, 42px);
+  letter-spacing: -0.02em;
+  color: #2e4636;
+  margin: 0 0 16px;
 }
 
 .flavorSwitcher {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 16px;
-}
-
-@media (min-width: 400px) {
-  .flavorSwitcher {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .flavorPill {
-    flex: 1;
-    min-width: 0;
-  }
 }
 
 .flavorPill {
   width: 100%;
-  padding: 11px 16px;
+  padding: 12px 16px;
   border-radius: 999px;
   border: 1px solid rgba(29, 61, 47, 0.15);
   background: #faf6ec;
@@ -78,28 +73,42 @@
   border-color: rgba(29, 61, 47, 0.3);
 }
 
-.mainImage {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: 24px;
-  overflow: hidden;
-  background: #ece5d3;
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.gallery {
+  min-width: 0;
+}
+
+.galleryMedia {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .thumbs {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  position: absolute;
-  left: -72px;
-  top: 0;
+  flex-direction: row;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.thumbs::-webkit-scrollbar {
+  display: none;
 }
 
 .thumb {
   position: relative;
-  width: 56px;
-  height: 56px;
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
   border-radius: 12px;
   overflow: hidden;
   border: 2px solid transparent;
@@ -112,50 +121,53 @@
   border-color: #2e4636;
 }
 
-.content {
-  padding-top: 8px;
+.mainImage {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-width: 0;
+  aspect-ratio: 1;
+  max-height: min(420px, 72vw);
+  border-radius: 20px;
+  overflow: hidden;
+  background: #ece5d3;
 }
 
-.title {
-  font-family: "Hanken Grotesk", system-ui, sans-serif;
-  font-weight: 800;
-  font-size: clamp(32px, 4vw, 42px);
-  letter-spacing: -0.02em;
-  color: #2e4636;
-  margin: 0 0 20px;
+.content {
+  min-width: 0;
 }
 
 .intro {
   font-family: "Mulish", system-ui, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.65;
   color: #4a544d;
-  margin: 0 0 28px;
+  margin: 0 0 24px;
 }
 
 .highlights {
   list-style: none;
-  margin: 0 0 32px;
+  margin: 0 0 28px;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .highlight {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: 12px;
   font-family: "Mulish", system-ui, sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.5;
   color: #2e4636;
 }
 
 .highlightIcon {
   flex-shrink: 0;
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: rgba(46, 70, 54, 0.08);
   display: flex;
@@ -166,18 +178,18 @@
 
 .humanGrade {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 16px 18px;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
   border-radius: 14px;
   background: rgba(95, 131, 80, 0.12);
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .humanGradeBadge {
   flex-shrink: 0;
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: #2e4636;
   color: #faf6ec;
@@ -186,7 +198,7 @@
   justify-content: center;
   font-family: "Hanken Grotesk", system-ui, sans-serif;
   font-weight: 800;
-  font-size: 8px;
+  font-size: 7px;
   letter-spacing: 0.06em;
   text-align: center;
   line-height: 1.2;
@@ -194,23 +206,23 @@
 
 .humanGradeText {
   font-family: "Mulish", system-ui, sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.5;
   color: #2e4636;
   margin: 0;
 }
 
 .superfoods {
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .superfoodsTitle {
   font-family: "Hanken Grotesk", system-ui, sans-serif;
   font-weight: 800;
-  font-size: 22px;
+  font-size: clamp(18px, 4vw, 22px);
   letter-spacing: -0.02em;
   color: #2e4636;
-  margin: 0 0 20px;
+  margin: 0 0 16px;
 }
 
 .superfoodsList {
@@ -237,8 +249,8 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 12px;
-  padding: 16px 18px;
+  gap: 10px;
+  padding: 14px 16px;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -250,11 +262,12 @@
   align-items: flex-start;
   gap: 10px;
   min-width: 0;
+  flex: 1;
 }
 
 .superfoodEmoji {
   flex-shrink: 0;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.2;
   margin-top: 1px;
 }
@@ -269,19 +282,16 @@
 .superfoodTitle {
   font-family: "Hanken Grotesk", system-ui, sans-serif;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.35;
   color: #2e4636;
 }
 
 .superfoodClaim {
   font-family: "Mulish", system-ui, sans-serif;
-  font-size: 13.5px;
+  font-size: 13px;
   line-height: 1.45;
   color: #6f7a72;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .superfoodIcon {
@@ -301,16 +311,17 @@
 
 .superfoodBody {
   font-family: "Mulish", system-ui, sans-serif;
-  font-size: 14.5px;
+  font-size: 14px;
   line-height: 1.65;
   color: #4a544d;
   margin: 0;
-  padding: 0 18px 18px 48px;
+  padding: 0 16px 16px;
+  padding-left: 44px;
 }
 
 .audience {
-  margin-bottom: 32px;
-  padding: 18px 20px;
+  margin-bottom: 28px;
+  padding: 16px 18px;
   border-radius: 14px;
   background: rgba(46, 70, 54, 0.06);
   border-left: 3px solid #2e4636;
@@ -319,7 +330,7 @@
 .audienceLabel {
   font-family: "Hanken Grotesk", system-ui, sans-serif;
   font-weight: 800;
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #6f7a72;
@@ -328,31 +339,120 @@
 
 .audienceText {
   font-family: "Mulish", system-ui, sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.6;
   color: #2e4636;
   margin: 0;
 }
 
 .ctaWrap {
-  margin-top: 36px;
+  margin-top: 28px;
 }
 
-@media (max-width: 960px) {
+.ctaWrap button {
+  width: 100%;
+  max-width: 100%;
+  justify-content: center;
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+  .page {
+    padding: 40px 28px 80px;
+  }
+
+  .breadcrumbs {
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+
+  .header {
+    margin-bottom: 28px;
+  }
+
+  .flavorSwitcher {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .flavorPill {
+    flex: 1 1 calc(50% - 5px);
+    width: auto;
+    min-width: 0;
+  }
+
+  .intro {
+    font-size: 16px;
+  }
+
+  .highlight {
+    font-size: 15px;
+  }
+
+  .humanGradeText {
+    font-size: 14px;
+  }
+
+  .superfoodTitle {
+    font-size: 15px;
+  }
+
+  .superfoodBody {
+    font-size: 14.5px;
+    padding: 0 18px 18px 48px;
+  }
+
+  .ctaWrap button {
+    width: auto;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .page {
+    padding: 48px 40px 96px;
+  }
+
+  .header {
+    margin-bottom: 32px;
+  }
+
   .layout {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+  }
+
+  .galleryMedia {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 14px;
   }
 
   .thumbs {
-    position: static;
-    flex-direction: row;
-    margin-bottom: 12px;
+    flex-direction: column;
+    overflow: visible;
+    padding-bottom: 0;
   }
-}
 
-@media (max-width: 640px) {
-  .page {
-    padding: 32px 20px 72px;
+  .thumb {
+    width: 56px;
+    height: 56px;
+  }
+
+  .mainImage {
+    flex: 1;
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: 1;
+    border-radius: 24px;
+  }
+
+  .content {
+    padding-top: 4px;
+  }
+
+  .flavorPill {
+    flex: 1;
   }
 }

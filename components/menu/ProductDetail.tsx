@@ -65,8 +65,9 @@ export default function ProductDetail({ product }: { product: ProductDetailData 
         <span>{product.detailTitle}</span>
       </nav>
 
-      <div className={styles.layout}>
-        <div className={styles.gallery}>
+      <div className={styles.shell}>
+        <header className={styles.header}>
+          <h1 className={styles.title}>{product.detailTitle}</h1>
           {hasFlavors && product.flavors && (
             <div className={styles.flavorSwitcher} role="tablist" aria-label="Wybierz smak">
               {product.flavors.map((flavor, index) => (
@@ -83,36 +84,41 @@ export default function ProductDetail({ product }: { product: ProductDetailData 
               ))}
             </div>
           )}
-          {gallery.length > 1 && (
-            <div className={styles.thumbs}>
-              {gallery.map((item, index) => (
-                <button
-                  key={item.src}
-                  type="button"
-                  className={`${styles.thumb} ${index === activeImage ? styles.thumbActive : ""}`}
-                  onClick={() => setActiveImage(index)}
-                  aria-label={`Zdjęcie ${index + 1}`}
-                >
-                  <Image src={item.src} alt="" fill sizes="56px" style={{ objectFit: "cover" }} />
-                </button>
-              ))}
-            </div>
-          )}
-          <div className={styles.mainImage}>
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              sizes="(max-width: 960px) 100vw, 50vw"
-              style={{ objectFit: "cover" }}
-              priority
-            />
-          </div>
-        </div>
+        </header>
 
-        <div className={styles.content}>
-          <h1 className={styles.title}>{product.detailTitle}</h1>
-          <p className={styles.intro}>{intro}</p>
+        <div className={styles.layout}>
+          <div className={styles.gallery}>
+            <div className={styles.galleryMedia}>
+              {gallery.length > 1 && (
+                <div className={styles.thumbs}>
+                  {gallery.map((item, index) => (
+                    <button
+                      key={item.src}
+                      type="button"
+                      className={`${styles.thumb} ${index === activeImage ? styles.thumbActive : ""}`}
+                      onClick={() => setActiveImage(index)}
+                      aria-label={`Zdjęcie ${index + 1}`}
+                    >
+                      <Image src={item.src} alt="" fill sizes="64px" style={{ objectFit: "cover" }} />
+                    </button>
+                  ))}
+                </div>
+              )}
+              <div className={styles.mainImage}>
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1100px) 90vw, 540px"
+                  style={{ objectFit: "cover" }}
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.content}>
+            <p className={styles.intro}>{intro}</p>
 
           <ul className={styles.highlights}>
             {product.highlights.map(({ icon, text }) => {
@@ -233,6 +239,7 @@ export default function ProductDetail({ product }: { product: ProductDetailData 
               Przygotuj dietę dla swojego psa →
             </StartSubscriptionButton>
           </div>
+        </div>
         </div>
       </div>
     </div>
