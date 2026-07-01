@@ -1,0 +1,358 @@
+.page {
+  padding: 48px 40px 96px;
+  background: #faf6ec;
+}
+
+.breadcrumbs {
+  max-width: 1120px;
+  margin: 0 auto 32px;
+  font-family: "Mulish", system-ui, sans-serif;
+  font-size: 13px;
+  color: #6f7a72;
+}
+
+.breadcrumbs a {
+  color: #6f7a72;
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: #2e4636;
+}
+
+.layout {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.gallery {
+  position: relative;
+}
+
+.flavorSwitcher {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 400px) {
+  .flavorSwitcher {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .flavorPill {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+.flavorPill {
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(29, 61, 47, 0.15);
+  background: #faf6ec;
+  color: #1d3d2f;
+  font-family: "Mulish", system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.flavorPillActive {
+  background: #1d3d2f;
+  color: #faf6ec;
+  border-color: #1d3d2f;
+}
+
+.flavorPill:hover:not(.flavorPillActive) {
+  border-color: rgba(29, 61, 47, 0.3);
+}
+
+.mainImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #ece5d3;
+}
+
+.thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: absolute;
+  left: -72px;
+  top: 0;
+}
+
+.thumb {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  background: #ece5d3;
+  cursor: pointer;
+  padding: 0;
+}
+
+.thumbActive {
+  border-color: #2e4636;
+}
+
+.content {
+  padding-top: 8px;
+}
+
+.title {
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 4vw, 42px);
+  letter-spacing: -0.02em;
+  color: #2e4636;
+  margin: 0 0 20px;
+}
+
+.intro {
+  font-family: "Mulish", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #4a544d;
+  margin: 0 0 28px;
+}
+
+.highlights {
+  list-style: none;
+  margin: 0 0 32px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-family: "Mulish", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #2e4636;
+}
+
+.highlightIcon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(46, 70, 54, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2e4636;
+}
+
+.humanGrade {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: rgba(95, 131, 80, 0.12);
+  margin-bottom: 32px;
+}
+
+.humanGradeBadge {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #2e4636;
+  color: #faf6ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 8px;
+  letter-spacing: 0.06em;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.humanGradeText {
+  font-family: "Mulish", system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #2e4636;
+  margin: 0;
+}
+
+.superfoods {
+  margin-bottom: 32px;
+}
+
+.superfoodsTitle {
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: #2e4636;
+  margin: 0 0 20px;
+}
+
+.superfoodsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.superfood {
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #e7dec8;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.superfoodOpen {
+  border-color: rgba(46, 70, 54, 0.22);
+  box-shadow: 0 4px 16px rgba(46, 70, 54, 0.06);
+}
+
+.superfoodTrigger {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 18px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.superfoodHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+}
+
+.superfoodEmoji {
+  flex-shrink: 0;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-top: 1px;
+}
+
+.superfoodHeading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.superfoodTitle {
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.35;
+  color: #2e4636;
+}
+
+.superfoodClaim {
+  font-family: "Mulish", system-ui, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: #6f7a72;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.superfoodIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #6f7a72;
+  transition: transform 0.2s ease;
+}
+
+.superfoodIconOpen {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #6f7a72;
+  transform: rotate(180deg);
+  transition: transform 0.2s ease;
+}
+
+.superfoodBody {
+  font-family: "Mulish", system-ui, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #4a544d;
+  margin: 0;
+  padding: 0 18px 18px 48px;
+}
+
+.audience {
+  margin-bottom: 32px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: rgba(46, 70, 54, 0.06);
+  border-left: 3px solid #2e4636;
+}
+
+.audienceLabel {
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6f7a72;
+  margin: 0 0 8px;
+}
+
+.audienceText {
+  font-family: "Mulish", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #2e4636;
+  margin: 0;
+}
+
+.ctaWrap {
+  margin-top: 36px;
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .thumbs {
+    position: static;
+    flex-direction: row;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 32px 20px 72px;
+  }
+}

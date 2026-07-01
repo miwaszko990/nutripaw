@@ -6,6 +6,7 @@ import NutriPawWordmark from "./NutriPawWordmark";
 import StartSubscriptionButton from "./StartSubscriptionButton";
 
 const navLinks = [
+  { label: "Nasze menu", href: "/nasze-menu" },
   { label: "Jak to działa", href: "/#jak-to-dziala" },
   { label: "Linie produktowe", href: "/#produkty" },
   { label: "Dlaczego NutriPaw", href: "/#dlaczego" },
@@ -25,7 +26,9 @@ function NavLink({
   style?: CSSProperties;
   onClick?: () => void;
 }) {
-  if (href === "/faq") {
+  const isPageLink = href.startsWith("/") && !href.includes("#");
+
+  if (isPageLink) {
     return (
       <Link href={href} className={className} style={style} onClick={onClick}>
         {label}

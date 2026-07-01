@@ -1,0 +1,76 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid #e7dec8;
+}
+
+.item {
+  border-bottom: 1px solid #e7dec8;
+}
+
+.trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  border: none;
+  background: transparent;
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: #2e4636;
+  cursor: pointer;
+  text-align: left;
+}
+
+.icon {
+  flex-shrink: 0;
+  color: #6f7a72;
+  transition: transform 0.2s ease;
+}
+
+.iconOpen {
+  flex-shrink: 0;
+  color: #6f7a72;
+  transition: transform 0.2s ease;
+  transform: rotate(180deg);
+}
+
+.panel {
+  padding: 0 0 22px;
+  font-family: "Mulish", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #4a544d;
+}
+
+.analyticalTable {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.analyticalRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #ece5d3;
+  font-size: 15px;
+}
+
+.analyticalRow:last-child {
+  border-bottom: none;
+}
+
+.analyticalLabel {
+  color: #4a544d;
+}
+
+.analyticalValue {
+  font-weight: 700;
+  color: #2e4636;
+}

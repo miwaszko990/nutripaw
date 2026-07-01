@@ -104,7 +104,7 @@ export function filterBreeds(query: string): string[] {
 
   const matches = SORTED_BREEDS.filter((breed) => normalize(breed).includes(q));
   const specials = SPECIAL_BREEDS.filter((breed) => normalize(breed).includes(q));
-  const rest = matches.filter((breed) => !specials.includes(breed));
+  const rest = matches.filter((breed) => !(specials as readonly string[]).includes(breed));
 
   return [...specials, ...rest];
 }
